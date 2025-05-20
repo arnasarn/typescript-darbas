@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="forms">
+        <div id="animal-form" class="animal-form">
+          <h2>Create an Animal</h2>
+          <select id="animalType" placeholder="Select animal Type">
+            <option value="---">---</option>
+            <option value="zebra">Zebra</option>
+            <option value="tiger">Tiger</option>
+            <option value="elephant">Elephant</option>
+          </select>
+          <div id="animal-form-fields" class="animal-form-fields"></div>
+          <button id="logAnimals">Log animals</button>
+        </div>
+        <div class="employee-form">
+          <h2>Create an Employee</h2>
+          <input
+            id="employeeName"
+            type="text"
+            placeholder="Please enter employee name"
+          />
+          <label for="isAtZoo">Is employee currently at zoo?</label>
+          <input type="checkbox" id="isAtZoo" />
+          <button id="addEmployee">Add employee to zoo</button>
+          <button id="logEmps">Log employees</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
