@@ -1,4 +1,5 @@
 import type { AnimalType } from "../animals/Animal.ts";
+import type { Logger } from "../Logger.ts";
 import { Employee } from "./Employee.ts";
 
 export class Zookeeper extends Employee {
@@ -6,8 +7,8 @@ export class Zookeeper extends Employee {
     console.log("Taking zookeeper safety training");
   }
 
-  feedAnimal(animal: AnimalType) {
-    console.log(`Zookeeper fed ${animal.name} at ${new Date()}`);
+  feedAnimal(animal: AnimalType, logger: Logger) {
+    logger.log(`Zookeeper ${this.name} fed ${animal.name} at ${new Date()}`);
   }
 
   getZookeeper() {

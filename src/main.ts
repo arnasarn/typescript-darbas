@@ -4,6 +4,9 @@ import { Tiger } from "./features/animals/Tiger.ts";
 import { Zebra } from "./features/animals/Zebra.ts";
 import { Employees } from "./features/employees/Employees.ts";
 import { Zookeeper } from "./features/employees/Zookeeper.ts";
+import { Logger } from "./features/Logger.ts";
+
+const logger = Logger.getInstance();
 
 const animals = new Animals();
 const employees = new Employees();
@@ -50,6 +53,7 @@ animalTypeInput.addEventListener("input", () => {
       });
 
       animals.insertAnimal(elephant.getElephant());
+      logger.log(`Added Elephant: ${JSON.stringify(elephant.getElephant())}`);
     });
   }
 
@@ -89,6 +93,7 @@ animalTypeInput.addEventListener("input", () => {
       });
 
       animals.insertAnimal(tiger.getTiger());
+      logger.log(`Added Tiger: ${JSON.stringify(tiger.getTiger())}`);
     });
   }
 
@@ -128,6 +133,7 @@ animalTypeInput.addEventListener("input", () => {
       });
 
       animals.insertAnimal(zebra.getZebra());
+      logger.log(`Added Zebra: ${JSON.stringify(zebra.getZebra())}`);
     });
   }
 
@@ -135,7 +141,7 @@ animalTypeInput.addEventListener("input", () => {
 });
 
 logAnimalsButton.addEventListener("click", () => {
-  console.log(animals.getAllAnimals());
+  console.log(logger.getLogs());
 });
 
 //EMPLOYEE FORM
@@ -164,8 +170,17 @@ employeeSubmitButton.addEventListener("click", () => {
   });
 
   employees.insertEmployee(employee.getZookeeper());
+  logger.log(`Added Employee: ${JSON.stringify(employee.getZookeeper())}`);
 });
 
 logEmpsButton.addEventListener("click", () => {
-  console.log(employees.getAllEmployees());
+  console.log(logger.getLogs());
 });
+
+const testkeeper = new Zookeeper({
+  name: "TestJohn",
+  isEmployeeAtZoo: false,
+  safetyTrainingCompletionDate: new Date(),
+});
+
+testkeeper.feedAnimal({ name: "Cat", age: 5 }, logger);
